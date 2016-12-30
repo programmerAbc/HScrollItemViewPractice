@@ -41,10 +41,7 @@ public class MyLinearLayout extends LinearLayout {
         coverTv = (TextView) findViewById(R.id.coverTv);
         itemATv = (TextView) findViewById(R.id.itemATv);
         itemBTv = (TextView) findViewById(R.id.itemBTv);
-        //itemATv.setPivotX(0.5f);
-        //itemATv.setPivotY(0.5f);
-        //itemBTv.setPivotX(0.5f);
-        //itemBTv.setPivotY(0.5f);
+
         scroller = new Scroller(getContext());
     }
 
@@ -66,8 +63,8 @@ public class MyLinearLayout extends LinearLayout {
     public void scrollTo(int x, int y) {
         x = Math.max(0, Math.min(x, horizontalScrollDistance));
         float scrollFactor=(float)x/horizontalScrollDistance;
-        itemATv.setScaleY(Math.max(0f, Math.min(scrollFactor*2, 1f)));
-        itemBTv.setScaleY(Math.max(0f, Math.min(scrollFactor, 1f)));
+        itemATv.setScaleY(Math.max(0f, Math.min(scrollFactor*scrollFactor*2, 1f)));
+        itemBTv.setScaleY(Math.max(0f, Math.min(scrollFactor*scrollFactor, 1f)));
         super.scrollTo(x, y);
     }
 
@@ -107,6 +104,7 @@ public class MyLinearLayout extends LinearLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         horizontalScrollDistance = itemATv.getMeasuredWidth() + itemBTv.getMeasuredWidth();
-        Log.e(TAG, "onMeasure: itemATv.width=" + itemATv.getMeasuredWidth() + " itemBTv.width=" + itemBTv.getMeasuredWidth());
+        itemATv.setPivotY(itemATv.getMeasuredHeight());
+        itemBTv.setPivotY(itemBTv.getMeasuredHeight());
     }
 }
