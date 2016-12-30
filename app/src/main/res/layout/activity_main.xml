@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.practice.HScrollItemViewPractice.MyLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="horizontal"
+    android:gravity="bottom"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    tools:context="com.practice.HScrollItemViewPractice.MainActivity">
+
+    <TextView
+        android:clickable="true"
+        android:background="@android:color/white"
+        android:id="@+id/coverTv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="COVER"
+        android:textStyle="bold" />
+
+    <TextView
+        android:clickable="true"
+        android:background="@android:color/holo_red_light"
+        android:id="@+id/itemATv"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/coverTv"
+        android:gravity="center"
+        android:text="ItemA"
+        android:textStyle="bold" />
+
+    <TextView
+        android:clickable="true"
+        android:background="@android:color/holo_orange_light"
+        android:id="@+id/itemBTv"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/itemATv"
+        android:gravity="center"
+        android:text="ItemB"
+        android:textStyle="bold" />
+</com.practice.HScrollItemViewPractice.MyLinearLayout>
