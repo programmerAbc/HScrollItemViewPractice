@@ -81,10 +81,10 @@ public class HorizontalSwipeLayout extends FrameLayout {
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
                 if (-getChildAt(0).getLeft() > swipeDistance * 2 / 3) {
                     viewDragHelper.settleCapturedViewAt(-swipeDistance, 0);
-                    postInvalidate();
+                    invalidate();
                 } else {
                     viewDragHelper.settleCapturedViewAt(0, 0);
-                    postInvalidate();
+                    invalidate();
                 }
             }
         });
@@ -108,7 +108,7 @@ public class HorizontalSwipeLayout extends FrameLayout {
     @Override
     public void computeScroll() {
         if (viewDragHelper.continueSettling(true)) {
-            postInvalidate();
+            invalidate();
         }
     }
 
